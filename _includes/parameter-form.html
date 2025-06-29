@@ -1,0 +1,57 @@
+<div class="llm-param-form">
+  <form id="llmParamsForm">
+    <div class="form-row">
+      <label for="model">model:</label>
+      <input type="text" id="model" name="model" value="{{ site.lm.default_model }}">
+    </div>
+    <div class="form-row"> <!-- Added form-row class -->
+      <label for="max_tokens">max_tokens:</label>
+      <input type="number" id="max_tokens" name="max_tokens" value="{{ site.lm.max_tokens }}" step="1" min="1" max="1000000">
+    </div>
+    <div class="form-row"> <!-- Added form-row class -->
+      <label for="prompt_truncate_len">prompt_truncate_len:</label>
+      <input type="number" id="prompt_truncate_len" name="prompt_truncate_len" value="{{ site.lm.prompt_truncate_len }}" step="1" min="1500" max="1000000">
+    </div>
+    <div class="form-row"> <!-- Added form-row class -->
+      <label for="temperature">temperature:</label>
+      <input type="number" id="temperature" name="temperature" value="{{ site.lm.temperature }}" step="0.1" min="0.1" max="2">
+    </div>
+    <div class="form-row"> <!-- Added form-row class -->
+      <label for="top_p">top_p:</label>
+      <input type="number" id="top_p" name="top_p" value="{{ site.lm.top_p }}" step="0.1" min="0.1" max="1">
+    </div>
+    <div class="form-row"> <!-- Added form-row class -->
+      <label for="top_k">top_k:</label>
+      <input type="number" id="top_k" name="top_k" value="{{ site.lm.top_k }}" step="1" min="1" max="1000">
+    </div>
+    <div class="form-button-row">
+      <a href="#" id="navigateToMachineLink" class="styled-link-button">Thingk with these settings, Machine.</a>
+    </div>
+  </form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navigateLink = document.getElementById('navigateToMachineLink');
+        if (navigateLink) {
+            navigateLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                const form = document.getElementById('llmParamsForm');
+                const params = {};
+                new FormData(form).forEach((value, key) => {
+                if (value) {
+                    params[key] = value;
+                }
+              });
+
+              const queryParams = new URLSearchParams(params);
+
+              // Construct the target URL using Jekyll's relative_url filter
+              const targetBaseUrl = "{{ 'machine' | relative_url }}";
+              const targetUrl = targetBaseUrl + '?' + queryParams.toString();
+
+              window.location.href = targetUrl;
+            });
+        }
+    });
+</script>
+
