@@ -78,10 +78,14 @@ self.onmessage = async function(event) {
 
 
         // --- 5. Make the LLM API call ---
+        //      --header "x-api-key: $ANTHROPIC_API_KEY" \
+        //      --header "anthropic-version: 2023-06-01" \
+        //      --header "content-type: application/json" \
         const apiOptions = {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + llmSettings.token,
+                'x-api-key': llmSettings.token,
+                'anthropic-version': '2023-06-01',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(finalApiPayload)

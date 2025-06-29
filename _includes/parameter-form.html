@@ -9,12 +9,8 @@
       <input type="number" id="max_tokens" name="max_tokens" value="{{ site.lm.max_tokens }}" step="1" min="1" max="1000000">
     </div>
     <div class="form-row"> <!-- Added form-row class -->
-      <label for="prompt_truncate_len">prompt_truncate_len:</label>
-      <input type="number" id="prompt_truncate_len" name="prompt_truncate_len" value="{{ site.lm.prompt_truncate_len }}" step="1" min="1500" max="1000000">
-    </div>
-    <div class="form-row"> <!-- Added form-row class -->
       <label for="temperature">temperature:</label>
-      <input type="number" id="temperature" name="temperature" value="{{ site.lm.temperature }}" step="0.1" min="0.1" max="2">
+      <input type="number" id="temperature" name="temperature" value="{{ site.lm.temperature }}" step="0.1" min="0.1" max="1">
     </div>
     <div class="form-row"> <!-- Added form-row class -->
       <label for="top_p">top_p:</label>

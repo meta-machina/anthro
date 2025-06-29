@@ -1,1 +1,1 @@
-### Thingking Machine (fireworks)
+### webmachine template (anthropic)
