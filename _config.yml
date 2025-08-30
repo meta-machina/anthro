@@ -14,7 +14,7 @@ description: A machine is a thing. Things can not think. ...but some of them can
 
 machine:
   name: Thingking-Machine
-  instructions_file: thingking.txt
+  instructions_file: thingking.md
   token: anthropic.txt
   apiUrl: https://api.anthropic.com/v1/messages
 
